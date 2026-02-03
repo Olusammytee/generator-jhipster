@@ -82,6 +82,9 @@ export default defineComponent({
           size: itemsPerPage.value,
           sort: sort(),
         };
+  <%_ if (implementsEagerLoadApis || containsBagRelationships) { _%>
+        paginationQuery.eagerload = true;
+  <%_ } _%>
 <%_ } _%>
 <%_ if (searchEngineAny) { _%>
         const res = currentSearch.value ?
